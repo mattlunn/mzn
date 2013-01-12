@@ -1,0 +1,4 @@
+array[1 .. 2, 1 .. 7] of var 1 .. 4: grid;
+output 
+  [ show(grid[i, j]) ++ if (j mod 2) = 0 then "\n" else " " endif | 
+    i in 1 .. 2, j in 1 .. 7 ];

@@ -1,0 +1,4 @@
+array[1 .. 14, 1 .. 14] of var 0 .. 1: grid;
+output 
+  [ show(grid[x, y]) ++ if (y mod 14) = 0 then "\n" else " " endif | 
+    x in 1 .. 14, y in 1 .. 14 ];
