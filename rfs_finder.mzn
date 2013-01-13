@@ -1,9 +1,20 @@
 include "lex2.mzn";
+include "count.mzn";
 
 int: size;
-int: half = 'div'(size, 2);
+int: half = size div 2;
+int: squared = size * size;
+
+var int: c;
 
 array[1..size, 1..size] of var 0..1: grid;
+array[1..squared] of var 0..1: counter;
+
+constraint forall (x in 1..size, y in 1..size) (
+  counter[((x - 1) * size) + y] == grid[x, y]
+);
+
+constraint count(counter, 1, c) /\ c == squared div 4;
 
 constraint forall (x in 1..half, y in 1..half) (
   let {
