@@ -5,16 +5,24 @@ int: size;
 int: half = size div 2;
 int: squared = size * size;
 
-var int: c;
-
 array[1..size, 1..size] of var 0..1: grid;
-array[1..squared] of var 0..1: counter;
+array[1..size] of var int: row_freq;
+array[1..size] of var int: col_freq;
 
-constraint forall (x in 1..size, y in 1..size) (
-  counter[((x - 1) * size) + y] == grid[x, y]
+% Channelling constraints
+constraint forall (x in 1..size) (
+  count([grid[x, y] | y in 1..size], 1, row_freq[x])
 );
 
-constraint count(counter, 1, c) /\ c == squared div 4;
+constraint forall (y in 1..size) (
+  count([grid[x, y] | x in 1..size], 1, col_freq[y])
+);
+% /Channelling constraints
+
+% Ordering of rows and cols
+constraint forall (i in 1..(size - 1)) (
+  row_freq[i] <= row_freq[i+1] /\ col_freq[i] <= col_freq[i+1]
+);
 
 constraint forall (x in 1..half, y in 1..half) (
   let {
