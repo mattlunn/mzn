@@ -6,22 +6,13 @@ int: half = size div 2;
 int: squared = size * size;
 
 array[1..size, 1..size] of var 0..1: grid;
-array[1..size] of var int: row_freq;
-array[1..size] of var int: col_freq;
 
-% Channelling constraints
-constraint forall (x in 1..size) (
-  count([grid[x, y] | y in 1..size], 1, row_freq[x])
-);
-
-constraint forall (y in 1..size) (
-  count([grid[x, y] | x in 1..size], 1, col_freq[y])
-);
-% /Channelling constraints
-
-% Ordering of rows and cols
 constraint forall (i in 1..(size - 1)) (
-  row_freq[i] <= row_freq[i+1] /\ col_freq[i] <= col_freq[i+1]
+  forall (j in 1..size) ((
+    grid[i, j] >= grid[i+1, j] \/ exists ([grid[i, k] > grid[i+1, k] | k in 1..j])
+  ) /\ (
+    grid[j, i] >= grid[j, i+1] \/ exists ([grid[k, i] > grid[k, i+1] | k in 1..j])
+  ))
 );
 
 constraint forall (x in 1..half, y in 1..half) (

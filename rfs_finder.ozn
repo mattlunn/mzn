@@ -1,4 +1,4 @@
-array[1 .. 16, 1 .. 16] of var 0 .. 1: grid;
+array[1 .. 4, 1 .. 4] of var 0 .. 1: grid;
 output 
-  [ show(grid[x, y]) ++ if (y mod 16) = 0 then "\n" else " " endif | 
-    x in 1 .. 16, y in 1 .. 16 ];
+  [ show(grid[x, y]) ++ if (y mod 4) = 0 then "\n" else " " endif | 
+    x in 1 .. 4, y in 1 .. 4 ];
