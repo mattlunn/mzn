@@ -2,18 +2,10 @@ include "lex2.mzn";
 include "count.mzn";
 
 int: size;
-int: half = size div 2;
-int: squared = size * size;
+int: half = (size + 1) div 2;
+bool: even = (size mod 2 == 0);
 
 array[1..size, 1..size] of var 0..1: grid;
-
-constraint forall (i in 1..(size - 1)) (
-  forall (j in 1..size) ((
-    grid[i, j] >= grid[i+1, j] \/ exists ([grid[i, k] > grid[i+1, k] | k in 1..j])
-  ) /\ (
-    grid[j, i] >= grid[j, i+1] \/ exists ([grid[k, i] > grid[k, i+1] | k in 1..j])
-  ))
-);
 
 constraint forall (x in 1..half, y in 1..half) (
   let {
@@ -21,7 +13,7 @@ constraint forall (x in 1..half, y in 1..half) (
     int: offset_y = abs(1 - y)
   } in
 
-  grid[x, y] + grid[size - offset_y, 1 + offset_x] + grid[size - offset_x, size - offset_y] + grid[1 + offset_y, size - offset_x] == 1
+  (grid[x, y] + grid[size - offset_y, 1 + offset_x] + grid[size - offset_x, size - offset_y] + grid[1 + offset_y, size - offset_x] == 1) \/ (not even /\ x == half /\ y == half /\ grid[x, y] == 1)
 );
 
 constraint forall (x_i in 1..size, x_j in 1..size where x_i < x_j) (
