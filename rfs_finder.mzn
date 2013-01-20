@@ -42,5 +42,10 @@ constraint forall (x_i in 1..size, x_j in 1..size where x_i < x_j) (
   )
 );
 
-solve satisfy;
+solve :: seq_search([
+          int_search(row_freq, input_order, indomain_median, complete),
+          int_search(col_freq, input_order, indomain_median, complete)
+         ])
+  satisfy;
+
 output[show(row_freq[x]) ++ show(col_freq[x]) ++ show(grid[x, y]) | x in 1..size, y in 1..size]
