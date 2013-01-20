@@ -1,0 +1,169 @@
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>set step=1 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>IF "even" == "even" set step=2 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>FOR /L %A IN (2 2 16) DO (
+mzn2fzn -D "size=%A" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=2" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..2, [0, 1]);
+grid = array2d(1..2, 1..2, [0, 0, 0, 1]);
+row_freq = array1d(1..2, [0, 1]);
+----------
+
+%%  runtime:       0.007 (7.000 ms)
+%%  solvetime:     0.002 (2.000 ms)
+%%  solutions:     1
+%%  variables:     16
+%%  propagators:   18
+%%  propagations:  47
+%%  nodes:         5
+%%  failures:      2
+%%  peak depth:    2
+%%  peak memory:   16 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=4" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..4, [1, 1, 1, 1]);
+grid = array2d(1..4, 1..4, [0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0]);
+row_freq = array1d(1..4, [1, 1, 1, 1]);
+----------
+
+%%  runtime:       0.004 (4.000 ms)
+%%  solvetime:     0.002 (2.000 ms)
+%%  solutions:     1
+%%  variables:     56
+%%  propagators:   86
+%%  propagations:  295
+%%  nodes:         13
+%%  failures:      1
+%%  peak depth:    10
+%%  peak memory:   48 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=6" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..6, [1, 1, 1, 2, 2, 2]);
+grid = array2d(1..6, 1..6, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0]);
+row_freq = array1d(1..6, [1, 1, 1, 2, 2, 2]);
+----------
+
+%%  runtime:       0.005 (5.000 ms)
+%%  solvetime:     0.002 (2.000 ms)
+%%  solutions:     1
+%%  variables:     120
+%%  propagators:   326
+%%  propagations:  991
+%%  nodes:         19
+%%  failures:      0
+%%  peak depth:    17
+%%  peak memory:   265 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=8" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..8, [2, 2, 2, 2, 2, 2, 2, 2]);
+grid = array2d(1..8, 1..8, [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0]);
+row_freq = array1d(1..8, [2, 2, 2, 2, 2, 2, 2, 2]);
+----------
+
+%%  runtime:       0.012 (12.000 ms)
+%%  solvetime:     0.003 (3.000 ms)
+%%  solutions:     1
+%%  variables:     208
+%%  propagators:   954
+%%  propagations:  5853
+%%  nodes:         50
+%%  failures:      8
+%%  peak depth:    36
+%%  peak memory:   1036 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=10" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..10, [2, 2, 2, 2, 2, 3, 3, 3, 3, 3]);
+grid = array2d(1..10, 1..10, [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]);
+row_freq = array1d(1..10, [2, 2, 2, 2, 2, 3, 3, 3, 3, 3]);
+----------
+
+%%  runtime:       0.026 (26.000 ms)
+%%  solvetime:     0.006 (6.000 ms)
+%%  solutions:     1
+%%  variables:     320
+%%  propagators:   2282
+%%  propagations:  21795
+%%  nodes:         111
+%%  failures:      30
+%%  peak depth:    64
+%%  peak memory:   2960 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=12" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..12, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
+grid = array2d(1..12, 1..12, [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+row_freq = array1d(1..12, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
+----------
+
+%%  runtime:       0.063 (63.000 ms)
+%%  solvetime:     0.021 (21.000 ms)
+%%  solutions:     1
+%%  variables:     456
+%%  propagators:   4718
+%%  propagations:  106670
+%%  nodes:         246
+%%  failures:      87
+%%  peak depth:    82
+%%  peak memory:   6995 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=14" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..14, [3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4]);
+grid = array2d(1..14, 1..14, [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+row_freq = array1d(1..14, [3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4]);
+----------
+
+%%  runtime:       5.643 (5643.000 ms)
+%%  solvetime:     5.570 (5570.000 ms)
+%%  solutions:     1
+%%  variables:     616
+%%  propagators:   8766
+%%  propagations:  79618214
+%%  nodes:         108023
+%%  failures:      53950
+%%  peak depth:    121
+%%  peak memory:   30312 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=16" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+col_freq = array1d(1..16, [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]);
+grid = array2d(1..16, 1..16, [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+row_freq = array1d(1..16, [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]);
+----------
+
+%%  runtime:       25.761 (25761.000 ms)
+%%  solvetime:     25.631 (25631.000 ms)
+%%  solutions:     1
+%%  variables:     800
+%%  propagators:   15026
+%%  propagations:  314609783
+%%  nodes:         256517
+%%  failures:      128195
+%%  peak depth:    135
+%%  peak memory:   54636 KB
