@@ -1,0 +1,134 @@
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>set step=1 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>IF "even" == "even" set step=2 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>FOR /L %A IN (2 2 16) DO (
+mzn2fzn -D "size=%A" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=2" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..2, 1..2, [1, 0, 0, 0]);
+----------
+
+%%  runtime:       0.030 (30.000 ms)
+%%  solvetime:     0.008 (8.000 ms)
+%%  solutions:     1
+%%  variables:     17
+%%  propagators:   15
+%%  propagations:  38
+%%  nodes:         4
+%%  failures:      0
+%%  peak depth:    3
+%%  peak memory:   20 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=4" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..4, 1..4, [1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+----------
+
+%%  runtime:       0.003 (3.000 ms)
+%%  solvetime:     0.001 (1.000 ms)
+%%  solutions:     1
+%%  variables:     65
+%%  propagators:   89
+%%  propagations:  278
+%%  nodes:         13
+%%  failures:      0
+%%  peak depth:    12
+%%  peak memory:   49 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=6" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..6, 1..6, [1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+----------
+
+%%  runtime:       0.009 (9.000 ms)
+%%  solvetime:     0.003 (3.000 ms)
+%%  solutions:     1
+%%  variables:     145
+%%  propagators:   343
+%%  propagations:  1135
+%%  nodes:         26
+%%  failures:      0
+%%  peak depth:    25
+%%  peak memory:   250 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=8" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..8, 1..8, [1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+----------
+
+%%  runtime:       0.018 (18.000 ms)
+%%  solvetime:     0.002 (2.000 ms)
+%%  solutions:     1
+%%  variables:     257
+%%  propagators:   993
+%%  propagations:  3961
+%%  nodes:         40
+%%  failures:      1
+%%  peak depth:    38
+%%  peak memory:   971 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=10" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..10, 1..10, [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+----------
+
+%%  runtime:       0.039 (39.000 ms)
+%%  solvetime:     0.010 (10.000 ms)
+%%  solutions:     1
+%%  variables:     401
+%%  propagators:   2351
+%%  propagations:  50586
+%%  nodes:         199
+%%  failures:      70
+%%  peak depth:    56
+%%  peak memory:   3153 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=12" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+grid = array2d(1..12, 1..12, [0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+----------
+
+%%  runtime:       1:50.593 (110593.000 ms)
+%%  solvetime:     1:50.532 (110532.000 ms)
+%%  solutions:     1
+%%  variables:     577
+%%  propagators:   4825
+%%  propagations:  1417201556
+%%  nodes:         3169042
+%%  failures:      1584466
+%%  peak depth:    77
+%%  peak memory:   22699 KB
+
+C:\Users\Matt\Dropbox\Uni\PRBX\Minizinc>(
+mzn2fzn -D "size=14" rfs_finder.mzn  
+ fz.exe -p 4 -mode stat rfs_finder.fzn 
+) 
+=====UNKNOWN=====
+
+%%  runtime:       1:06.816 (66816.000 ms)
+%%  solvetime:     1:06.692 (66692.000 ms)
+%%  solutions:     0
+%%  variables:     785
+%%  propagators:   8919
+%%  propagations:  489901024
+%%  nodes:         592432
+%%  failures:      296171
+%%  peak depth:    90
+%%  peak memory:   38952 KB
